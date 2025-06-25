@@ -1,141 +1,90 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cart - Checkout</title>
+  <title>Cart - Payment</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Simple fade-in animation */
+    /* Smooth fade-in animation */
     .fade-in {
-      animation: fadeIn 0.8s ease forwards;
+      animation: fadeIn 0.6s ease forwards;
       opacity: 0;
     }
     @keyframes fadeIn {
       to { opacity: 1; }
     }
+    /* Button hover scale */
+    button:hover {
+      transform: scale(1.05);
+      transition: transform 0.2s ease;
+    }
   </style>
 </head>
-<body class="bg-gray-900 text-gray-100 min-h-screen flex items-center justify-center px-6">
+<body class="bg-gray-900 text-gray-300 min-h-screen flex flex-col items-center p-6">
 
-  <div class="max-w-lg w-full bg-gray-800 bg-opacity-90 rounded-3xl shadow-lg p-10 fade-in">
-
-    <h1 class="text-4xl font-bold mb-6 text-center text-blue-400">Your Cart</h1>
-
-    <div class="space-y-6">
-
-      <!-- Example item -->
-      <div class="flex justify-between items-center bg-gray-700 rounded-xl p-4 shadow-inner">
-        <div>
-          <h2 class="text-xl font-semibold">Fortnite</h2>
-          <p class="text-gray-400">Quantity: 1</p>
-        </div>
-        <span class="text-xl font-bold">$2.49</span>
-      </div>
-
-      <!-- Total -->
-      <div class="flex justify-between items-center border-t border-gray-600 pt-4">
-        <span class="text-2xl font-semibold">Total:</span>
-        <span class="text-2xl font-bold text-blue-400">$2.49</span>
-      </div>
-    </div>
+  <main class="max-w-lg w-full bg-gray-800 bg-opacity-90 rounded-3xl p-10 shadow-lg fade-in">
+    <h1 class="text-4xl font-extrabold mb-8 text-white text-center">Complete Your Purchase</h1>
 
     <!-- Roblox Username -->
-    <div class="mt-10">
-      <label for="roblox-username" class="block mb-2 text-lg font-semibold text-gray-300">Roblox Username</label>
-      <input type="text" id="roblox-username" placeholder="Enter your Roblox username" 
-             class="w-full p-3 rounded-xl bg-gray-700 text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    <div class="mb-6">
+      <label for="robloxUsername" class="block mb-2 text-lg font-semibold text-gray-300">Roblox Username</label>
+      <input
+        type="text"
+        id="robloxUsername"
+        name="robloxUsername"
+        placeholder="Enter your Roblox username"
+        class="w-full p-3 rounded-xl bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
     </div>
 
     <!-- Emoji Wanted -->
-    <div class="mt-6">
-      <label class="block mb-2 text-lg font-semibold text-gray-300">Emoji Wanted</label>
-      <button id="emojiToggleBtn" class="w-full p-3 bg-gray-700 rounded-xl text-white font-semibold hover:bg-gray-600 transition">
-        Choose Emoji
-      </button>
-      <p class="mt-3 text-gray-300">Selected: <span id="selectedEmoji" class="text-2xl">None</span></p>
-
-      <!-- Emoji picker -->
-      <div id="emojiPicker" class="mt-4 grid grid-cols-8 gap-3 p-4 bg-gray-700 rounded-xl shadow-inner max-h-40 overflow-y-auto hidden">
-        <!-- Emojis will be inserted here by JS -->
-      </div>
+    <div class="mb-6">
+      <label for="emojiWanted" class="block mb-2 text-lg font-semibold text-gray-300">Emoji Wanted</label>
+      <input
+        type="text"
+        id="emojiWanted"
+        name="emojiWanted"
+        placeholder="Type your desired emoji here"
+        class="w-full p-3 rounded-xl bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
     </div>
 
     <!-- Payment Methods -->
-    <div class="mt-10 bg-gray-700 rounded-xl p-6 shadow-md">
-      <h2 class="text-2xl font-semibold mb-4 text-center text-blue-400">Payment Methods</h2>
-      <ul class="space-y-4 text-gray-300">
-        <li>
-          <label class="flex items-center cursor-pointer">
-            <input type="radio" name="payment-method" value="paypal" checked class="accent-blue-500" />
-            <span class="ml-3 font-medium text-white">PayPal</span>
-          </label>
-        </li>
-        <li>
-          <label class="flex items-center cursor-not-allowed opacity-50">
-            <input type="radio" name="payment-method" value="cashapp" disabled />
-            <span class="ml-3">Cashapp <span class="text-sm italic text-red-400 ml-2">(Unavailable, use PayPal)</span></span>
-          </label>
-        </li>
-        <li>
-          <label class="flex items-center cursor-not-allowed opacity-50">
-            <input type="radio" name="payment-method" value="bitcoin" disabled />
-            <span class="ml-3">Bitcoin <span class="text-sm italic text-red-400 ml-2">(Unavailable, use PayPal)</span></span>
-          </label>
-        </li>
-      </ul>
+    <div class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-white">Payment Methods</h2>
+      
+      <label class="flex items-center mb-4 cursor-pointer">
+        <input type="radio" name="paymentMethod" value="paypal" checked class="mr-3 w-5 h-5 accent-blue-600" />
+        <span class="text-white font-semibold">PayPal</span>
+      </label>
+      
+      <label class="flex items-center mb-4 cursor-not-allowed opacity-60">
+        <input type="radio" name="paymentMethod" value="cashapp" disabled class="mr-3 w-5 h-5" />
+        <span>Cashapp <span class="text-red-400 ml-1">(Unavailable - Use PayPal)</span></span>
+      </label>
+      
+      <label class="flex items-center cursor-not-allowed opacity-60">
+        <input type="radio" name="paymentMethod" value="bitcoin" disabled class="mr-3 w-5 h-5" />
+        <span>Bitcoin <span class="text-red-400 ml-1">(Unavailable - Use PayPal)</span></span>
+      </label>
     </div>
 
-    <!-- Payment instructions -->
-    <div class="mt-10 bg-gray-700 rounded-xl p-6 text-center space-y-4 shadow-md">
-      <p class="text-lg font-semibold text-red-400 animate-pulse">Send <span class="text-2xl">$30</span> to PayPal:</p>
-      <p class="text-xl font-mono tracking-wide">Jsm123</p>
-      <p class="text-md text-gray-300">Use <strong>FRIENDS AND FAMILY</strong> payment method</p>
-      <p class="italic text-gray-500 text-sm">or your payment will be refunded</p>
+    <!-- Payment Instructions -->
+    <div class="bg-gray-700 rounded-xl p-6 mb-8 shadow-inner">
+      <p class="text-lg mb-2">Send <span class="font-extrabold text-white">$30</span> to PayPal:</p>
+      <p class="text-xl font-semibold text-blue-400 mb-2">Jsm123</p>
+      <p class="italic text-red-400">FRIENDS AND FAMILY OR IT WILL BE REFUNDED.</p>
     </div>
 
-    <button 
-      onclick="alert('Thank you for your purchase! Please follow the instructions above.')"
-      class="mt-10 w-full bg-blue-600 hover:bg-blue-700 transition rounded-xl py-3 font-semibold text-white text-lg shadow-lg hover:scale-105 transform duration-200"
+    <button
+      type="submit"
+      class="w-full bg-blue-600 py-3 rounded-2xl text-white font-extrabold hover:bg-blue-700 transition-transform duration-200 transform hover:scale-105"
+      onclick="alert('Thank you for your purchase!');"
     >
-      Confirm Payment
+      Confirm Purchase
     </button>
-
-  </div>
-
-  <script>
-    // Emoji list (simple selection)
-    const emojis = ['😀','😎','🎮','🔥','✨','💥','🚀','🌟','💎','🦄','🎉','❤️','👍','🤖','👾','🐱‍👤','🎯','🍕','🍔','🍦','⚡','💡','🎵','🏆','🧩','📦','🎲','🛡️','🥇','🕹️','📱'];
-
-    const emojiPicker = document.getElementById('emojiPicker');
-    const emojiToggleBtn = document.getElementById('emojiToggleBtn');
-    const selectedEmojiSpan = document.getElementById('selectedEmoji');
-
-    // Populate emoji picker
-    emojis.forEach(emoji => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.textContent = emoji;
-      btn.className = 'text-2xl p-1 hover:bg-gray-600 rounded transition';
-      btn.addEventListener('click', () => {
-        selectedEmojiSpan.textContent = emoji;
-        emojiPicker.classList.add('hidden');
-      });
-      emojiPicker.appendChild(btn);
-    });
-
-    // Toggle emoji picker visibility
-    emojiToggleBtn.addEventListener('click', () => {
-      emojiPicker.classList.toggle('hidden');
-    });
-
-    // Close emoji picker if clicking outside
-    document.addEventListener('click', (e) => {
-      if (!emojiToggleBtn.contains(e.target) && !emojiPicker.contains(e.target)) {
-        emojiPicker.classList.add('hidden');
-      }
-    });
-  </script>
+  </main>
 
 </body>
 </html>
