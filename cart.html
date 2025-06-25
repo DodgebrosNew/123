@@ -40,6 +40,31 @@
       </div>
     </div>
 
+    <!-- Payment Methods -->
+    <div class="mt-10 bg-gray-700 rounded-xl p-6 shadow-md">
+      <h2 class="text-2xl font-semibold mb-4 text-center text-blue-400">Payment Methods</h2>
+      <ul class="space-y-4 text-gray-300">
+        <li>
+          <label class="flex items-center cursor-pointer">
+            <input type="radio" name="payment-method" value="paypal" checked class="accent-blue-500" />
+            <span class="ml-3 font-medium text-white">PayPal</span>
+          </label>
+        </li>
+        <li>
+          <label class="flex items-center cursor-not-allowed opacity-50">
+            <input type="radio" name="payment-method" value="cashapp" disabled />
+            <span class="ml-3">Cashapp <span class="text-sm italic text-red-400 ml-2">(Unavailable, use PayPal)</span></span>
+          </label>
+        </li>
+        <li>
+          <label class="flex items-center cursor-not-allowed opacity-50">
+            <input type="radio" name="payment-method" value="bitcoin" disabled />
+            <span class="ml-3">Bitcoin <span class="text-sm italic text-red-400 ml-2">(Unavailable, use PayPal)</span></span>
+          </label>
+        </li>
+      </ul>
+    </div>
+
     <!-- Payment instructions -->
     <div class="mt-10 bg-gray-700 rounded-xl p-6 text-center space-y-4 shadow-md">
       <p class="text-lg font-semibold text-red-400 animate-pulse">Send <span class="text-2xl">$30</span> to PayPal:</p>
