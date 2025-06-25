@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cart - Checkout</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Simple fade-in animation */
+    .fade-in {
+      animation: fadeIn 0.8s ease forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex items-center justify-center px-6">
+
+  <div class="max-w-lg w-full bg-gray-800 bg-opacity-90 rounded-3xl shadow-lg p-10 fade-in">
+
+    <h1 class="text-4xl font-bold mb-6 text-center text-blue-400">Your Cart</h1>
+
+    <div class="space-y-6">
+
+      <!-- Example item -->
+      <div class="flex justify-between items-center bg-gray-700 rounded-xl p-4 shadow-inner">
+        <div>
+          <h2 class="text-xl font-semibold">Fortnite</h2>
+          <p class="text-gray-400">Quantity: 1</p>
+        </div>
+        <span class="text-xl font-bold">$2.49</span>
+      </div>
+
+      <!-- Total -->
+      <div class="flex justify-between items-center border-t border-gray-600 pt-4">
+        <span class="text-2xl font-semibold">Total:</span>
+        <span class="text-2xl font-bold text-blue-400">$2.49</span>
+      </div>
+    </div>
+
+    <!-- Payment instructions -->
+    <div class="mt-10 bg-gray-700 rounded-xl p-6 text-center space-y-4 shadow-md">
+      <p class="text-lg font-semibold text-red-400 animate-pulse">Send <span class="text-2xl">$30</span> to PayPal:</p>
+      <p class="text-xl font-mono tracking-wide">Jsm123</p>
+      <p class="text-md text-gray-300">Use <strong>FRIENDS AND FAMILY</strong> payment method</p>
+      <p class="italic text-gray-500 text-sm">or your payment will be refunded</p>
+    </div>
+
+    <button 
+      onclick="alert('Thank you for your purchase! Please follow the instructions above.')"
+      class="mt-10 w-full bg-blue-600 hover:bg-blue-700 transition rounded-xl py-3 font-semibold text-white text-lg shadow-lg hover:scale-105 transform duration-200"
+    >
+      Confirm Payment
+    </button>
+
+  </div>
+
+</body>
+</html>
