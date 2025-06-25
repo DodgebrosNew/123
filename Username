@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cart - Payment</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Smooth fade-in animation */
+    .fade-in {
+      animation: fadeIn 0.6s ease forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    /* Button hover scale */
+    button:hover {
+      transform: scale(1.05);
+      transition: transform 0.2s ease;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-300 min-h-screen flex flex-col items-center p-6">
+
+  <main class="max-w-lg w-full bg-gray-800 bg-opacity-90 rounded-3xl p-10 shadow-lg fade-in">
+    <h1 class="text-4xl font-extrabold mb-8 text-white text-center">Complete Your Purchase</h1>
+
+    <!-- Roblox Username -->
+    <div class="mb-6">
+      <label for="robloxUsername" class="block mb-2 text-lg font-semibold text-gray-300">Roblox Username</label>
+      <input
+        type="text"
+        id="robloxUsername"
+        name="robloxUsername"
+        placeholder="Enter your Roblox username"
+        class="w-full p-3 rounded-xl bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+
+    <!-- Emoji Wanted -->
+    <div class="mb-6">
+      <label for="emojiWanted" class="block mb-2 text-lg font-semibold text-gray-300">Emoji Wanted</label>
+      <input
+        type="text"
+        id="emojiWanted"
+        name="emojiWanted"
+        placeholder="Type your desired Username here"
+        class="w-full p-3 rounded-xl bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+
+    <!-- Payment Methods -->
+    <div class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-white">Payment Methods</h2>
+      
+      <label class="flex items-center mb-4 cursor-pointer">
+        <input type="radio" name="paymentMethod" value="paypal" checked class="mr-3 w-5 h-5 accent-blue-600" />
+        <span class="text-white font-semibold">PayPal</span>
+      </label>
+      
+      <label class="flex items-center mb-4 cursor-not-allowed opacity-60">
+        <input type="radio" name="paymentMethod" value="cashapp" disabled class="mr-3 w-5 h-5" />
+        <span>Cashapp <span class="text-red-400 ml-1">(Unavailable - Use PayPal)</span></span>
+      </label>
+      
+      <label class="flex items-center cursor-not-allowed opacity-60">
+        <input type="radio" name="paymentMethod" value="bitcoin" disabled class="mr-3 w-5 h-5" />
+        <span>Bitcoin <span class="text-red-400 ml-1">(Unavailable - Use PayPal)</span></span>
+      </label>
+    </div>
+
+    <!-- Payment Instructions -->
+    <div class="bg-gray-700 rounded-xl p-6 mb-8 shadow-inner">
+      <p class="text-lg mb-2">Send <span class="font-extrabold text-white">$25</span> to PayPal:</p>
+      <p class="text-xl font-semibold text-blue-400 mb-2">BomboclatYei</p>
+      <p class="italic text-red-400">FRIENDS AND FAMILY OR IT WILL BE REFUNDED.</p>
+    </div>
+
+    <button
+      type="submit"
+      class="w-full bg-blue-600 py-3 rounded-2xl text-white font-extrabold hover:bg-blue-700 transition-transform duration-200 transform hover:scale-105"
+      onclick="alert('Finding Payment..');"
+    >
+      I Sent the Payment!
+    </button>
+  </main>
+
+</body>
+</html>
